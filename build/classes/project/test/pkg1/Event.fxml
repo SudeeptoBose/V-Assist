@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.*?>
+<?import java.lang.*?>
+<?import java.net.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="project.test.pkg1.ProfileController">
+    <stylesheets>
+        <URL value="@profile.css" />
+    </stylesheets>
+   <children>
+      <Pane prefHeight="400.0" prefWidth="600.0">
+         <children>
+            <Label layoutX="79.0" layoutY="80.0" text="Event Name" />
+            <Label layoutX="79.0" layoutY="120.0" text="Event theme" />
+            <Label layoutX="79.0" layoutY="160.0" text="Venue" />
+            <Label layoutX="79.0" layoutY="200.0" text="Date" />
+            <Label layoutX="388.0" layoutY="74.0" text="Skills Required -" />
+            <JFXCheckBox layoutX="420.0" layoutY="110.0" text="Graphics" />
+            <JFXCheckBox layoutX="420.0" layoutY="141.0" text="Teaching" />
+            <JFXCheckBox layoutX="420.0" layoutY="173.0" text="Management" />
+            <JFXTextField layoutX="165.0" layoutY="68.0" />
+            <JFXTextField layoutX="165.0" layoutY="108.0" />
+            <JFXTextField layoutX="165.0" layoutY="148.0" />
+            <JFXTextField layoutX="165.0" layoutY="196.0" prefHeight="25.0" prefWidth="135.0" />
+            <Button layoutX="274.0" layoutY="311.0" mnemonicParsing="false" text="Create Event" />
+         </children>
+      </Pane>
+   </children>
+</AnchorPane>

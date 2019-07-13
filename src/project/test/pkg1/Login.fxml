@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.*?>
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import java.net.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="project.test.pkg1.LoginController">
+    <stylesheets>
+        <URL value="@login.css" />
+    </stylesheets>
+   <children>
+      <Pane prefHeight="400.0" prefWidth="600.0">
+         <children>
+            <Label layoutX="240.0" layoutY="82.0" text="Login" textAlignment="CENTER">
+               <font>
+                  <Font name="Courier New" size="46.0" />
+               </font>
+            </Label>
+            <JFXTextField fx:id="txtUsername" layoutX="242.0" layoutY="188.0" promptText="Username" />
+            <JFXTextField fx:id="txtPassword" layoutX="242.0" layoutY="251.0" promptText="Password" />
+            <Button fx:id="loginButtonNext" layoutX="377.0" layoutY="337.0" mnemonicParsing="false" onMouseClicked="#handleButtonPress" prefHeight="25.0" prefWidth="64.0" text="Next" />
+            <Label fx:id="createAccount" layoutX="214.0" layoutY="341.0" onMouseClicked="#handleLabelPress" text="Create account" />
+            <Label fx:id="forgotPassword" layoutX="279.0" layoutY="298.0" text="Forgot Password?" />
+         </children>
+      </Pane>
+   </children>
+</AnchorPane>
