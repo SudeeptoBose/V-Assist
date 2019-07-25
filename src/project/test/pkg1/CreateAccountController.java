@@ -5,20 +5,30 @@
  */
 package project.test.pkg1;
 
+import com.jfoenix.controls.JFXPasswordField;
+import com.jfoenix.controls.JFXTextField;
 import java.io.IOException;
 import java.net.URL;
+import java.sql.Connection;
+import java.sql.DriverManager;
 import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.ResourceBundle;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Node;
+import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
 
@@ -29,39 +39,114 @@ import javafx.stage.Stage;
  * @author sudee
  */
 public class CreateAccountController implements Initializable {
-    @FXML
     private Button buttonNext;
     @FXML
-    private Label loginLabel;
+    private Text loginLabel;
     
-    public void handleButtonAction(MouseEvent event) throws IOException, SQLException {
-    if (event.getSource() == loginLabel) {
-//            Node node = (Node) event.getSource();
-//            Stage stage = (Stage) node.getScene().getWindow();
-//            stage.close();
-
-//            Scene scene = new Scene(FXMLLoader.load(getClass().getResource("New.fxml")));
-//            stage.setScene(scene);
-//            stage.show();
-            Scene secondScene = new Scene(FXMLLoader.load(getClass().getResource("Login.fxml")));
-
-            Stage stage = new Stage();
-            stage.setScene(secondScene);
-            stage.show();
-    /**
-     * Initializes the controller class.
-     */    
+    Connection con;
+    Statement stm;
+    int res;
+    @FXML
+    private JFXTextField txtFirstName;
+    @FXML
+    private JFXTextField txtLastName;
+    @FXML
+    private JFXTextField txtUsername;
+    @FXML
+    private JFXPasswordField txtPassword;
+    @FXML
+    private JFXPasswordField txtConfirm;
+    @FXML
+    private Button buttonRegister;
     
-    }   
-}
-    public void handleLabelAction(MouseEvent event) throws IOException, SQLException{
-        if(event.getSource() == buttonNext){
-            System.exit(0);
-        }
-    }
+    
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        //To change body of generated methods, choose Tools | Templates.
+     
+        try {
+            con = DriverManager.getConnection("jdbc:derby://localhost:1527/VM", "sudeepto", "sudeepto");
+        } catch (SQLException ex) {
+            Logger.getLogger(CreateAccountController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+       
+    }
+
+    @FXML
+    private void getFirstName(ActionEvent event) {
+    }
+
+    @FXML
+    private void getLastName(ActionEvent event) {
+    }
+
+    @FXML
+    private void getUsername(ActionEvent event) {
+    }
+
+    @FXML
+    private void getPassword(ActionEvent event) {
+    }
+
+    @FXML
+    private void getConfirmPassword(ActionEvent event) {
+    }
+
+    @FXML
+    private void handleLogin(MouseEvent event) throws IOException {
+        Parent adminDash = FXMLLoader.load(getClass().getResource("Login.fxml"));
+        Scene adminDashScene = new Scene(adminDash);
+        Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        window.setTitle("Volunteer management");
+        window.setScene(adminDashScene);
+        window.show();
+    }
+
+    @FXML
+    private void setRegister(ActionEvent event) throws SQLException, IOException {
+    String Fname = txtFirstName.getText();
+    String Lname = txtLastName.getText();
+    String Uname = txtUsername.getText();
+    String Pass = txtPassword.getText();
+    String ConPass = txtConfirm.getText();
+    
+    if(!Pass.equals(ConPass)){
+        Alert alert = new Alert(Alert.AlertType.ERROR);
+        alert.setHeaderText(null);
+        alert.setContentText("Password doesn't match");
+        alert.showAndWait();
+        return;
+    }
+    if(Fname.isEmpty() || Lname.isEmpty() || Uname.isEmpty() || Pass.isEmpty() || ConPass.isEmpty()){
+        Alert alert = new Alert(Alert.AlertType.ERROR);
+        alert.setHeaderText(null);
+        alert.setContentText("Enter required field");
+        alert.showAndWait();
+        return;
+    }
+    String qu = "INSERT INTO CREATE_ACCOUNT VALUES("
+            + "'" + Uname + "',"
+            + "'" + Fname + "',"
+            + "'" + Lname + "',"
+            + "'" + Pass + "',"
+            + "'" + ConPass + "'"
+            + ")";
+    con = DriverManager.getConnection("jdbc:derby://localhost:1527/VM", "sudeepto", "sudeepto");
+    stm = con.createStatement();
+    res = stm.executeUpdate(qu);
+    if (res != 0){
+        Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+        alert.setHeaderText(null);
+        alert.setContentText("Register successful");
+        alert.showAndWait();
+        Parent adminDash = FXMLLoader.load(getClass().getResource("Login.fxml"));
+        Scene adminDashScene = new Scene(adminDash);
+        Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        window.setTitle("Volunteer management");
+        window.setScene(adminDashScene);
+        window.show();
+    }
+    
+    
     }
 }

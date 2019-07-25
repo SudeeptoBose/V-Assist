@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.image.*?>
 <?import com.jfoenix.controls.*?>
 <?import javafx.scene.text.*?>
 <?import java.lang.*?>
@@ -9,24 +10,25 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="project.test.pkg1.LoginController">
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="641.0" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="project.test.pkg1.LoginController">
     <stylesheets>
         <URL value="@login.css" />
     </stylesheets>
    <children>
-      <Pane prefHeight="400.0" prefWidth="600.0">
-         <children>
-            <Label layoutX="240.0" layoutY="82.0" text="Login" textAlignment="CENTER">
-               <font>
-                  <Font name="Courier New" size="46.0" />
-               </font>
-            </Label>
-            <JFXTextField fx:id="txtUsername" layoutX="242.0" layoutY="188.0" promptText="Username" />
-            <JFXTextField fx:id="txtPassword" layoutX="242.0" layoutY="251.0" promptText="Password" />
-            <Button fx:id="loginButtonNext" layoutX="377.0" layoutY="337.0" mnemonicParsing="false" onMouseClicked="#handleButtonPress" prefHeight="25.0" prefWidth="64.0" text="Next" />
-            <Label fx:id="createAccount" layoutX="214.0" layoutY="341.0" onMouseClicked="#handleLabelPress" text="Create account" />
-            <Label fx:id="forgotPassword" layoutX="279.0" layoutY="298.0" text="Forgot Password?" />
-         </children>
-      </Pane>
+      <ImageView fitHeight="400.0" fitWidth="592.0" layoutX="-93.0" layoutY="6.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@VolunteerLogin.png" />
+         </image>
+      </ImageView>
+      <Label layoutX="469.0" layoutY="47.0" text="Login" textAlignment="CENTER">
+         <font>
+            <Font name="Courier New" size="46.0" />
+         </font>
+      </Label>
+      <JFXTextField fx:id="txtUsername" layoutX="471.0" layoutY="153.0" onAction="#getUsername" promptText="Username" />
+      <JFXPasswordField fx:id="txtPassword" layoutX="471.0" layoutY="208.0" onAction="#getPassword" promptText="Password" />
+      <Button fx:id="loginButtonNext" layoutX="507.0" layoutY="258.0" mnemonicParsing="false" onAction="#goToAdminDash" onMouseClicked="#handleButtonPress" prefHeight="25.0" prefWidth="64.0" text="Login" />
+      <Label fx:id="createAccount" layoutX="499.0" layoutY="299.0" onMouseClicked="#handleLabelPress" text="Create account" textFill="#538bda" />
+      <Label fx:id="forgotPassword" layoutX="491.0" layoutY="331.0" text="Forgot Password?" textFill="#da2d2d" />
    </children>
 </AnchorPane>

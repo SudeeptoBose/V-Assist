@@ -16,18 +16,18 @@
    <children>
       <Pane prefHeight="400.0" prefWidth="600.0">
          <children>
-            <JFXTextField fx:id="txtFirstName" alignment="CENTER" layoutX="137.0" layoutY="150.0" promptText="First Name" />
+            <JFXTextField fx:id="txtFirstName" alignment="CENTER" layoutX="137.0" layoutY="150.0" onAction="#getFirstName" promptText="First Name" />
             <Label layoutX="203.0" layoutY="72.0" text="Create account">
                <font>
                   <Font name="Courier New" size="23.0" />
                </font>
             </Label>
-            <JFXTextField fx:id="txtLastName" alignment="CENTER" layoutX="302.0" layoutY="150.0" promptText="Last Name" />
-            <JFXTextField fx:id="txtUsername" alignment="CENTER" layoutX="137.0" layoutY="207.0" prefHeight="25.0" prefWidth="302.0" promptText="Enter Username" />
-            <JFXTextField fx:id="txtPassword" alignment="CENTER" layoutX="137.0" layoutY="265.0" promptText="Password" />
-            <JFXTextField fx:id="txtConfirm" alignment="CENTER" layoutX="302.0" layoutY="265.0" promptText="Confirm" />
-            <Label fx:id="loginLabel" alignment="CENTER" layoutX="137.0" layoutY="336.0" onMouseClicked="#handleLabelAction" text="Login instead" textFill="#3c6bda" />
-            <Button fx:id="buttonNext" alignment="CENTER" layoutX="387.0" layoutY="332.0" mnemonicParsing="false" onMouseClicked="#handleButtonAction" prefHeight="25.0" prefWidth="51.0" text="Next" />
+            <JFXTextField fx:id="txtLastName" alignment="CENTER" layoutX="302.0" layoutY="150.0" onAction="#getLastName" promptText="Last Name" />
+            <JFXTextField fx:id="txtUsername" alignment="CENTER" layoutX="137.0" layoutY="207.0" onAction="#getUsername" prefHeight="25.0" prefWidth="302.0" promptText="Enter Username" />
+            <JFXPasswordField fx:id="txtPassword" alignment="CENTER" layoutX="137.0" layoutY="261.0" onAction="#getPassword" promptText="Password" />
+            <JFXPasswordField fx:id="txtConfirm" alignment="CENTER" layoutX="302.0" layoutY="261.0" onAction="#getConfirmPassword" promptText="Confirm Password" />
+            <Button fx:id="buttonRegister" alignment="CENTER" layoutX="358.0" layoutY="332.0" mnemonicParsing="false" onAction="#setRegister" prefHeight="25.0" prefWidth="80.0" text="Register" />
+            <Text fx:id="loginLabel" fill="#3a9ce8" layoutX="137.0" layoutY="349.0" onMouseClicked="#handleLogin" strokeType="OUTSIDE" strokeWidth="0.0" text="Login Instead" />
          </children>
       </Pane>
    </children>

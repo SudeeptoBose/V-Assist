@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import com.jfoenix.controls.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+
+<AnchorPane id="AnchorPane" prefHeight="179.0" prefWidth="352.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8" fx:controller="project.test.pkg1.EventDeleteController">
+   <children>
+      <JFXTextField fx:id="eventid" layoutX="41.0" layoutY="37.0" onAction="#getid" prefHeight="25.0" prefWidth="265.0" promptText="Enter Event ID">
+         <font>
+            <Font name="System Bold" size="17.0" />
+         </font>
+      </JFXTextField>
+      <Button fx:id="cancel" layoutX="41.0" layoutY="113.0" mnemonicParsing="false" onAction="#goback" prefHeight="38.0" prefWidth="78.0" text="Cancel" />
+      <Button fx:id="deleteevent" layoutX="228.0" layoutY="113.0" mnemonicParsing="false" onAction="#donedelete" prefHeight="38.0" prefWidth="78.0" text="Delete" />
+   </children>
+</AnchorPane>
