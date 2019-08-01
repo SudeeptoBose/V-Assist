@@ -8,54 +8,55 @@
 <?import javafx.scene.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
+<?import javafx.scene.control.DatePicker?>
 
-<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="208.0" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="project.test.pkg1.EventController">
+<AnchorPane id="AnchorPane" prefHeight="635.0" prefWidth="969.0" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="project.test.pkg1.EventController">
     <stylesheets>
         <URL value="@profile.css" />
     </stylesheets>
    <children>
-      <Pane prefHeight="400.0" prefWidth="416.0">
-         <children>
-            <Label layoutX="32.0" layoutY="96.0" text="Event Name">
-               <font>
-                  <Font name="System Bold" size="14.0" />
-               </font></Label>
-            <Label layoutX="31.0" layoutY="129.0" text="Venue">
-               <font>
-                  <Font name="System Bold" size="14.0" />
-               </font></Label>
-            <Label layoutX="31.0" layoutY="159.0" text="Date">
-               <font>
-                  <Font name="System Bold" size="14.0" />
-               </font></Label>
-            <JFXTextField fx:id="eventName" layoutX="208.0" layoutY="94.0" onAction="#getEventName" />
-            <JFXTextField fx:id="venue" layoutX="208.0" layoutY="116.0" onAction="#getVenue" />
-            <Button fx:id="createEvent" layoutX="222.0" layoutY="292.0" mnemonicParsing="false" onAction="#setCreateEvent" prefHeight="44.0" prefWidth="135.0" text="Create Event">
-               <font>
-                  <Font name="System Bold" size="18.0" />
-               </font></Button>
-            <Label layoutX="31.0" layoutY="189.0" text="Duration">
-               <font>
-                  <Font name="System Bold" size="14.0" />
-               </font></Label>
-            <Label layoutX="31.0" layoutY="59.0" text="Event ID">
-               <font>
-                  <Font name="System Bold" size="14.0" />
-               </font></Label>
-            <JFXTextField fx:id="eventID" layoutX="208.0" layoutY="44.0" onAction="#getEventID" />
-            <Label layoutX="31.0" layoutY="219.0" text="Location">
-               <font>
-                  <Font name="System Bold" size="14.0" />
-               </font></Label>
-            <JFXTextField fx:id="location" layoutX="208.0" layoutY="206.0" onAction="#getLocation" />
-            <Button fx:id="cancel" layoutX="27.0" layoutY="292.0" mnemonicParsing="false" onAction="#goback" prefHeight="44.0" prefWidth="135.0" text="Cancel">
-               <font>
-                  <Font name="System Bold" size="18.0" />
-               </font>
-            </Button>
-            <DatePicker fx:id="date" layoutX="209.0" layoutY="157.0" onAction="#getDate" prefHeight="25.0" prefWidth="135.0" />
-            <ChoiceBox fx:id="duration" layoutX="215.0" layoutY="188.0" prefWidth="150.0" />
-         </children>
-      </Pane>
+      <JFXButton fx:id="createEvent" layoutX="620.0" layoutY="527.0" onAction="#setCreateEvent" text="Create Event">
+         <font>
+            <Font name="Microsoft JhengHei" size="25.0" />
+         </font></JFXButton>
+      <JFXButton fx:id="cancel" layoutX="156.0" layoutY="528.0" onAction="#goback" text="Cancel">
+         <font>
+            <Font size="24.0" />
+         </font></JFXButton>
+      <Label layoutX="208.0" layoutY="129.0" text="Event Name">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font>
+      </Label>
+      <JFXTextField fx:id="eventName" layoutX="485.0" layoutY="117.0" onAction="#getEventName" />
+      <JFXTextField fx:id="venue" layoutX="485.0" layoutY="179.0" onAction="#getVenue" />
+      <Label layoutX="208.0" layoutY="171.0" text="Venue">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font>
+      </Label>
+      <DatePicker fx:id="date" layoutX="485.0" layoutY="228.0" onAction="#getDate" prefHeight="25.0" prefWidth="135.0" />
+      <Label layoutX="208.0" layoutY="230.0" text="Date">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font>
+      </Label>
+      <Label layoutX="210.0" layoutY="273.0" text="Duration">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font>
+      </Label>
+      <Label layoutX="211.0" layoutY="329.0" text="Location">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font>
+      </Label>
+      <JFXTextField fx:id="location" layoutX="486.0" layoutY="337.0" onAction="#getLocation" />
+      <ChoiceBox fx:id="duration" layoutX="478.0" layoutY="281.0" prefWidth="150.0" />
+      <Label layoutX="348.0" layoutY="14.0" text="Create Event">
+         <font>
+            <Font name="Microsoft JhengHei Light" size="48.0" />
+         </font>
+      </Label>
    </children>
 </AnchorPane>

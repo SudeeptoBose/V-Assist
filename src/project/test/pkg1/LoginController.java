@@ -28,6 +28,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.image.Image;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 
@@ -64,6 +65,7 @@ public class LoginController implements Initializable {
         Parent adminDash = FXMLLoader.load(getClass().getResource("CreateAccount.fxml"));
         Scene adminDashScene = new Scene(adminDash);
         Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        window.getIcons().add(new Image(getClass().getResourceAsStream("icon.png")));
         window.setTitle("V-Assist");
         window.setScene(adminDashScene);
         window.show();
@@ -101,9 +103,10 @@ public class LoginController implements Initializable {
         alert.showAndWait();
         return;
         }
+        
         String qu = "SELECT * FROM SUDEEPTO.CREATE_ACCOUNT WHERE USERNAME = '"
             + Uname + "' AND PASSWORD = '"
-            + Pass + "'";
+            + Hash.encode(Pass) + "'";
         System.out.println(qu);
         PreparedStatement pst = con.prepareStatement(qu);
         //con = DriverManager.getConnection("jdbc:derby://localhost:1527/VM", "sudeepto", "sudeepto");
@@ -113,6 +116,8 @@ public class LoginController implements Initializable {
         Parent adminDash = FXMLLoader.load(getClass().getResource("AdminDash.fxml"));
         Scene adminDashScene = new Scene(adminDash);
         Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        window.getIcons().add(new Image(getClass().getResourceAsStream("icon.png")));
+//        window.setResizable(true);
         window.setTitle("V-Assist");
         window.setScene(adminDashScene);
         window.show();
@@ -130,5 +135,16 @@ public class LoginController implements Initializable {
     @FXML
     private void handleButtonPress(MouseEvent event) {
     
+    }
+
+    @FXML
+    private void getforgotpassword(MouseEvent event) throws IOException {
+        Parent adminDash = FXMLLoader.load(getClass().getResource("ForgotPassword.fxml"));
+        Scene adminDashScene = new Scene(adminDash);
+        Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        window.getIcons().add(new Image(getClass().getResourceAsStream("icon.png")));
+        window.setTitle("V-Assist");
+        window.setScene(adminDashScene);
+        window.show();
     }
 }

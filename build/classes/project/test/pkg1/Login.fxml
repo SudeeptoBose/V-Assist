@@ -10,25 +10,50 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="641.0" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="project.test.pkg1.LoginController">
+<AnchorPane id="AnchorPane" prefHeight="635.0" prefWidth="969.0" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="project.test.pkg1.LoginController">
     <stylesheets>
         <URL value="@login.css" />
     </stylesheets>
    <children>
-      <ImageView fitHeight="400.0" fitWidth="592.0" layoutX="-93.0" layoutY="6.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="642.0" fitWidth="953.0" layoutX="-202.0" layoutY="2.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@VolunteerLogin.png" />
          </image>
       </ImageView>
-      <Label layoutX="469.0" layoutY="47.0" text="Login" textAlignment="CENTER">
+      <Label layoutX="697.0" layoutY="24.0" prefHeight="87.0" prefWidth="156.0" text="Login" textAlignment="CENTER">
          <font>
-            <Font name="Courier New" size="46.0" />
+            <Font name="Microsoft JhengHei Light" size="62.0" />
          </font>
       </Label>
-      <JFXTextField fx:id="txtUsername" layoutX="471.0" layoutY="153.0" onAction="#getUsername" promptText="Username" />
-      <JFXPasswordField fx:id="txtPassword" layoutX="471.0" layoutY="208.0" onAction="#getPassword" promptText="Password" />
-      <Button fx:id="loginButtonNext" layoutX="507.0" layoutY="258.0" mnemonicParsing="false" onAction="#goToAdminDash" onMouseClicked="#handleButtonPress" prefHeight="25.0" prefWidth="64.0" text="Login" />
-      <Label fx:id="createAccount" layoutX="499.0" layoutY="299.0" onMouseClicked="#handleLabelPress" text="Create account" textFill="#538bda" />
-      <Label fx:id="forgotPassword" layoutX="491.0" layoutY="331.0" text="Forgot Password?" textFill="#da2d2d" />
+      <JFXTextField fx:id="txtUsername" layoutX="650.0" layoutY="155.0" onAction="#getUsername" prefHeight="52.0" prefWidth="255.0" promptText="Username">
+         <font>
+            <Font name="Microsoft JhengHei Light" size="18.0" />
+         </font></JFXTextField>
+      <JFXPasswordField fx:id="txtPassword" layoutX="650.0" layoutY="259.0" onAction="#getPassword" prefHeight="38.0" prefWidth="255.0" promptText="Password">
+         <font>
+            <Font name="Microsoft JhengHei Light" size="18.0" />
+         </font></JFXPasswordField>
+      <Label fx:id="createAccount" layoutX="704.0" layoutY="489.0" onMouseClicked="#handleLabelPress" prefHeight="28.0" prefWidth="156.0" text="Create account" textFill="#538bda">
+         <font>
+            <Font name="Microsoft JhengHei UI" size="21.0" />
+         </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor></Label>
+      <Label fx:id="forgotPassword" layoutX="708.0" layoutY="554.0" onMouseClicked="#getforgotpassword" text="Forgot Password?" textFill="#d9992e">
+         <font>
+            <Font size="18.0" />
+         </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor></Label>
+      <JFXButton fx:id="loginButtonNext" layoutX="710.0" layoutY="367.0" onAction="#goToAdminDash" prefHeight="52.0" prefWidth="136.0" style="-fx-background-color: #1c6eb5; -fx-background-radius: 50px;" text="Login" textFill="WHITE">
+         <font>
+            <Font size="24.0" />
+         </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </JFXButton>
    </children>
 </AnchorPane>

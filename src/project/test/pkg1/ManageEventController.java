@@ -23,6 +23,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
+import javafx.scene.image.Image;
 import javafx.stage.Stage;
 
 /**
@@ -40,9 +41,11 @@ public class ManageEventController implements Initializable {
     private Button deleteButton;
     @FXML
     private Button exitButton;
-     Connection con;
+    
+    Connection con;
     Statement stm;
     int res;
+    
     @FXML
     private TextField seventid;
     @FXML
@@ -68,13 +71,21 @@ public class ManageEventController implements Initializable {
         Parent adminDash = FXMLLoader.load(getClass().getResource("Event.fxml"));
         Scene adminDashScene = new Scene(adminDash);
         Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        window.getIcons().add(new Image(getClass().getResourceAsStream("icon.png")));
         window.setTitle("Volunteer management");
         window.setScene(adminDashScene);
         window.show();
     }
 
     @FXML
-    private void gotoUpdate(ActionEvent event) {
+    private void gotoUpdate(ActionEvent event) throws IOException {
+        Parent adminDash = FXMLLoader.load(getClass().getResource("EventUpdate.fxml"));
+        Scene adminDashScene = new Scene(adminDash);
+        Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        window.getIcons().add(new Image(getClass().getResourceAsStream("icon.png")));
+        window.setTitle("Volunteer management");
+        window.setScene(adminDashScene);
+        window.show();
     }
 
     @FXML
@@ -82,6 +93,7 @@ public class ManageEventController implements Initializable {
         Parent adminDash = FXMLLoader.load(getClass().getResource("EventDelete.fxml"));
         Scene adminDashScene = new Scene(adminDash);
         Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        window.getIcons().add(new Image(getClass().getResourceAsStream("icon.png")));
         window.setTitle("Volunteer management");
         window.setScene(adminDashScene);
         window.show();
@@ -92,6 +104,7 @@ public class ManageEventController implements Initializable {
         Parent adminDash = FXMLLoader.load(getClass().getResource("AdminDash.fxml"));
         Scene adminDashScene = new Scene(adminDash);
         Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        window.getIcons().add(new Image(getClass().getResourceAsStream("icon.png")));
         window.setTitle("V-Assist");
         window.setScene(adminDashScene);
         window.show();

@@ -9,26 +9,54 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="project.test.pkg1.CreateAccountController">
+<AnchorPane id="AnchorPane" prefHeight="635.0" prefWidth="969.0" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="project.test.pkg1.CreateAccountController">
     <stylesheets>
         <URL value="@createaccount.css" />
     </stylesheets>
    <children>
-      <Pane prefHeight="400.0" prefWidth="600.0">
+      <Pane layoutX="195.0" layoutY="160.0" prefHeight="336.0" prefWidth="452.0">
          <children>
-            <JFXTextField fx:id="txtFirstName" alignment="CENTER" layoutX="137.0" layoutY="150.0" onAction="#getFirstName" promptText="First Name" />
-            <Label layoutX="203.0" layoutY="72.0" text="Create account">
+            <JFXTextField fx:id="txtFirstName" layoutX="137.0" layoutY="14.0" onAction="#getFirstName" prefHeight="32.0" prefWidth="302.0" promptText="First Name">
                <font>
-                  <Font name="Courier New" size="23.0" />
-               </font>
-            </Label>
-            <JFXTextField fx:id="txtLastName" alignment="CENTER" layoutX="302.0" layoutY="150.0" onAction="#getLastName" promptText="Last Name" />
-            <JFXTextField fx:id="txtUsername" alignment="CENTER" layoutX="137.0" layoutY="207.0" onAction="#getUsername" prefHeight="25.0" prefWidth="302.0" promptText="Enter Username" />
-            <JFXPasswordField fx:id="txtPassword" alignment="CENTER" layoutX="137.0" layoutY="261.0" onAction="#getPassword" promptText="Password" />
-            <JFXPasswordField fx:id="txtConfirm" alignment="CENTER" layoutX="302.0" layoutY="261.0" onAction="#getConfirmPassword" promptText="Confirm Password" />
-            <Button fx:id="buttonRegister" alignment="CENTER" layoutX="358.0" layoutY="332.0" mnemonicParsing="false" onAction="#setRegister" prefHeight="25.0" prefWidth="80.0" text="Register" />
-            <Text fx:id="loginLabel" fill="#3a9ce8" layoutX="137.0" layoutY="349.0" onMouseClicked="#handleLogin" strokeType="OUTSIDE" strokeWidth="0.0" text="Login Instead" />
+                  <Font size="18.0" />
+               </font></JFXTextField>
+            <JFXTextField fx:id="txtLastName" layoutX="137.0" layoutY="77.0" onAction="#getLastName" prefHeight="32.0" prefWidth="302.0" promptText="Last Name">
+               <font>
+                  <Font size="18.0" />
+               </font></JFXTextField>
+            <JFXTextField fx:id="txtUsername" layoutX="137.0" layoutY="140.0" onAction="#getUsername" prefHeight="32.0" prefWidth="302.0" promptText="Enter Username">
+               <font>
+                  <Font size="18.0" />
+               </font></JFXTextField>
+            <JFXPasswordField fx:id="txtPassword" layoutX="137.0" layoutY="200.0" onAction="#getPassword" prefHeight="32.0" prefWidth="302.0" promptText="Password">
+               <font>
+                  <Font size="18.0" />
+               </font></JFXPasswordField>
+            <JFXPasswordField fx:id="txtConfirm" layoutX="137.0" layoutY="265.0" onAction="#getConfirmPassword" prefHeight="32.0" prefWidth="302.0" promptText="Confirm Password">
+               <font>
+                  <Font size="18.0" />
+               </font></JFXPasswordField>
          </children>
       </Pane>
+      <Label layoutX="260.0" layoutY="2.0" text="Create Account">
+         <font>
+            <Font name="Microsoft JhengHei Light" size="62.0" />
+         </font>
+      </Label>
+      <JFXButton fx:id="buttonRegister" layoutX="427.0" layoutY="505.0" onAction="#setRegister" style="-fx-background-color: #1c6eb5; -fx-background-radius: 50px;" text="Register" textFill="WHITE">
+         <font>
+            <Font name="Microsoft JhengHei" size="22.0" />
+         </font>
+      </JFXButton>
+      <Text fx:id="loginLabel" fill="#3a9ce8" layoutX="412.0" layoutY="597.0" onMouseClicked="#handleLogin" strokeType="OUTSIDE" strokeWidth="0.0" text="Login Instead" wrappingWidth="145.3203125">
+         <font>
+            <Font name="Microsoft JhengHei" size="22.0" />
+         </font>
+      </Text>
+      <Label layoutX="349.0" layoutY="89.0" text="Sign-Up now to use V-Assist" textFill="#2198e8">
+         <font>
+            <Font name="Microsoft JhengHei UI Light" size="20.0" />
+         </font>
+      </Label>
    </children>
 </AnchorPane>

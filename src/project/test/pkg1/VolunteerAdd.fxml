@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8" fx:controller="project.test.pkg1.VolunteerAddController">
+   <children>
+      <Label layoutX="50.0" layoutY="31.0" text="Volunteer ID" />
+      <Label layoutX="50.0" layoutY="83.0" text="Volunteer Name" />
+      <Label layoutX="50.0" layoutY="141.0" text="Age" />
+      <Label layoutX="50.0" layoutY="192.0" text="Phone" />
+      <Label layoutX="50.0" layoutY="235.0" text="Address" />
+      <Label layoutX="50.0" layoutY="292.0" text="Skill" />
+      <ChoiceBox fx:id="skillchoice" layoutX="337.0" layoutY="280.0" prefWidth="150.0" />
+      <JFXTextField fx:id="vid" layoutX="345.0" layoutY="27.0" onAction="#getvid" />
+      <JFXTextField fx:id="vname" layoutX="345.0" layoutY="71.0" onAction="#getvname" />
+      <JFXTextField fx:id="age" layoutX="345.0" layoutY="125.0" onAction="#getage" />
+      <JFXTextField fx:id="phone" layoutX="345.0" layoutY="180.0" onAction="#getphone" />
+      <JFXTextField fx:id="address" layoutX="345.0" layoutY="231.0" onAction="#getaddress" />
+      <Button fx:id="register" layoutX="435.0" layoutY="340.0" mnemonicParsing="false" onAction="#setregister" text="Register" />
+      <Button fx:id="back" layoutX="111.0" layoutY="340.0" mnemonicParsing="false" onAction="#gobackbutton" text="Back" />
+   </children>
+</AnchorPane>

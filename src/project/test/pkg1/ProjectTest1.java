@@ -16,6 +16,7 @@ import static javafx.application.Application.launch;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.image.Image;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 
@@ -30,8 +31,9 @@ public class ProjectTest1 extends Application {
         Parent root = FXMLLoader.load(getClass().getResource("Login.fxml"));
         
         Scene scene = new Scene(root);
-        
+        primaryStage.setTitle("V-Assist");
         primaryStage.setScene(scene);
+        primaryStage.getIcons().add(new Image(getClass().getResourceAsStream("icon.png")));
         primaryStage.show();
     }
 
@@ -41,29 +43,6 @@ public class ProjectTest1 extends Application {
      */
 public static void main(String[] args) {
         launch(args);
-//        Connection myConnectionObject = null;
-//        Statement myStatementObject = null;
-//        ResultSet myResultObject = null;
-//        ResultSetMetaData myMetaData = null;
-//        String query = "SELECT * FROM SUDEEPTO.CREATE_ACCOUNT";
-//        
-//        try{
-//            myConnectionObject = DriverManager.getConnection("jdbc:derby://localhost:1527/VM", "sudeepto", "sudeepto");
-//            myStatementObject = myConnectionObject.createStatement();
-//            myResultObject = myStatementObject.executeQuery(query);
-//            myMetaData = myResultObject.getMetaData();
-//            int columnNumber = myMetaData.getColumnCount();
-//            System.out.println(columnNumber);
-//            while(myResultObject.next()){
-//                String username = myResultObject.getString("USERNAME");
-//                String firstName = myResultObject.getString("FIRST_NAME");
-//                String lastName = myResultObject.getString("LAST_NAME");
-//                System.out.println(username + "\t " + firstName + "\t" + lastName);
-//            }
-//        }
-//        catch (SQLException e){
-//            e.printStackTrace();
-//        }
     }
 }
 

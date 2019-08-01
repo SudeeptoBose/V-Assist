@@ -1,5 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.effect.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.shape.*?>
+<?import com.jfoenix.controls.*?>
 <?import javafx.scene.text.*?>
 <?import java.lang.*?>
 <?import java.util.*?>
@@ -7,27 +12,44 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane id="AnchorPane" prefHeight="435.0" prefWidth="579.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="project.test.pkg1.AdminDashController">
+<AnchorPane id="AnchorPane" prefHeight="635.0" prefWidth="965.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="project.test.pkg1.AdminDashController">
    <children>
-      <Label layoutX="123.0" layoutY="27.0" text="Admin Dashboard">
+      <Label layoutX="328.0" layoutY="23.0" text="Admin Dashboard">
          <font>
-            <Font name="Courier New Bold" size="37.0" />
+            <Font name="Microsoft JhengHei Light" size="37.0" />
          </font>
       </Label>
-      <Button fx:id="upcomingevents" layoutX="123.0" layoutY="129.0" mnemonicParsing="false" onAction="#gotoupcomingevents" prefHeight="66.0" prefWidth="334.0" text="Event Managemant">
+      <JFXButton fx:id="upcomingevents" layoutX="324.0" layoutY="190.0" onAction="#gotoupcomingevents" prefHeight="97.0" prefWidth="314.0" style="-fx-background-color: #1c6eb5;" text="Event Management" textFill="#f8f5f5">
          <font>
-            <Font name="System Bold" size="22.0" />
+            <Font size="24.0" />
          </font>
-      </Button>
-      <Button fx:id="volmanage" layoutX="123.0" layoutY="222.0" mnemonicParsing="false" onAction="#gotovolmanage" prefHeight="66.0" prefWidth="334.0" text="Volunteer Managemant">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </JFXButton>
+      <JFXButton fx:id="volmanage" layoutX="326.0" layoutY="340.0" onAction="#gotovolmanage" prefHeight="97.0" prefWidth="314.0" style="-fx-background-color: #1c6eb5;" text="Volunteer Management" textFill="WHITE">
          <font>
-            <Font name="System Bold" size="23.0" />
+            <Font size="24.0" />
          </font>
-      </Button>
-      <Button fx:id="logout" layoutX="123.0" layoutY="314.0" mnemonicParsing="false" onAction="#goback" prefHeight="66.0" prefWidth="334.0" text="Logout">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </JFXButton>
+      <JFXButton fx:id="logout" layoutX="426.0" layoutY="543.0" onAction="#goback" prefHeight="52.0" prefWidth="111.0" style="-fx-border-color: #1c6eb5; -fx-border-radius: 50px;" text="Logout" textFill="#1c6eb5">
          <font>
-            <Font name="System Bold" size="22.0" />
+            <Font size="16.0" />
          </font>
-      </Button>
+         <opaqueInsets>
+            <Insets />
+         </opaqueInsets>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </JFXButton>
+      <Label layoutX="250.0" layoutY="75.0" text="This is where you start managing your events and the volunteers">
+         <font>
+            <Font name="Microsoft JhengHei Light" size="16.0" />
+         </font>
+      </Label>
    </children>
 </AnchorPane>

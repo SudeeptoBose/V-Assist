@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import com.jfoenix.controls.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane" prefHeight="635.0" prefWidth="969.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="project.test.pkg1.EventUpdateController">
+   <children>
+      <Label layoutX="83.0" layoutY="39.0" text="Event ID" />
+      <Label layoutX="83.0" layoutY="103.0" text="Event Name" />
+      <Label layoutX="89.0" layoutY="153.0" text="Venue" />
+      <DatePicker fx:id="date" layoutX="236.0" layoutY="188.0" onAction="#getdate" />
+      <Label layoutX="83.0" layoutY="192.0" text="Date" />
+      <Label layoutX="83.0" layoutY="243.0" text="Duration" />
+      <Label layoutX="83.0" layoutY="301.0" text="Location" />
+      <JFXTextField fx:id="eventname" layoutX="264.0" layoutY="91.0" onAction="#geteventname" />
+      <JFXTextField fx:id="venue" layoutX="264.0" layoutY="138.0" onAction="#getvenue" />
+      <JFXTextField fx:id="location" layoutX="264.0" layoutY="289.0" onAction="#getlocation" />
+      <ChoiceBox fx:id="duration" layoutX="248.0" layoutY="239.0" prefWidth="150.0" />
+      <JFXTextField fx:id="eventId" layoutX="236.0" layoutY="35.0" onAction="#geteventId" prefHeight="25.0" prefWidth="164.0" />
+      <JFXButton fx:id="update" layoutX="722.0" layoutY="501.0" onAction="#setupdate" prefHeight="66.0" prefWidth="164.0" style="-fx-background-color: #1c6eb5; -fx-background-radius: 50px;" text="Update" textFill="WHITE">
+         <font>
+            <Font name="Microsoft JhengHei" size="24.0" />
+         </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </JFXButton>
+      <JFXButton fx:id="cancel" layoutX="154.0" layoutY="501.0" onAction="#gobackto" prefHeight="66.0" prefWidth="164.0" style="-fx-border-color: #1c6eb5; -fx-border-radius: 50px;" text="Cancel" textFill="#1c6eb5">
+         <font>
+            <Font name="Microsoft JhengHei" size="24.0" />
+         </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </JFXButton>
+   </children>
+</AnchorPane>

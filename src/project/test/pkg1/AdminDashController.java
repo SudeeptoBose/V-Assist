@@ -22,6 +22,7 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.image.Image;
 import javafx.stage.Stage;
 
 /**
@@ -59,6 +60,7 @@ public class AdminDashController implements Initializable {
     Parent adminDash = FXMLLoader.load(getClass().getResource("ManageEvent.fxml"));
         Scene adminDashScene = new Scene(adminDash);
         Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        window.getIcons().add(new Image(getClass().getResourceAsStream("icon.png")));
         window.setTitle("V-Assist");
         window.setScene(adminDashScene);
         window.show();
@@ -69,6 +71,7 @@ public class AdminDashController implements Initializable {
         Parent adminDash = FXMLLoader.load(getClass().getResource("ManageVolunteer.fxml"));
         Scene adminDashScene = new Scene(adminDash);
         Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        window.getIcons().add(new Image(getClass().getResourceAsStream("icon.png")));
         window.setTitle("V-Assist");
         window.setScene(adminDashScene);
         window.show();
@@ -80,6 +83,7 @@ public class AdminDashController implements Initializable {
         Parent adminDash = FXMLLoader.load(getClass().getResource("Login.fxml"));
         Scene adminDashScene = new Scene(adminDash);
         Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        window.getIcons().add(new Image(getClass().getResourceAsStream("icon.png")));
         window.setTitle("V-Assist");
         window.setScene(adminDashScene);
         window.show();

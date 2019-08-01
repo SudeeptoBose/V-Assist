@@ -12,9 +12,11 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.time.LocalDate;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import static javafx.collections.FXCollections.observableArrayList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -24,6 +26,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
+import javafx.scene.control.ChoiceBox;
 import javafx.scene.image.Image;
 import javafx.stage.Stage;
 
@@ -32,73 +35,124 @@ import javafx.stage.Stage;
  *
  * @author sudee
  */
-public class EventDeleteController implements Initializable {
+public class VolunteerUpdateController implements Initializable {
 
     @FXML
-    private JFXTextField eventid;
+    private JFXTextField vid;
     @FXML
-    private Button cancel;
+    private JFXTextField vname;
     @FXML
-    private Button deleteevent;
+    private JFXTextField age;
+    @FXML
+    private JFXTextField phone;
+    @FXML
+    private JFXTextField address;
+    @FXML
+    private ChoiceBox<String> skill;
+    @FXML
+    private Button back;
+    @FXML
+    private Button update;
+    
     Connection con;
     Statement stm;
     int res;
+    String qu;
+
     /**
      * Initializes the controller class.
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         try {
+            // TODO
             con = DriverManager.getConnection("jdbc:derby://localhost:1527/VM", "sudeepto", "sudeepto");
         } catch (SQLException ex) {
-            Logger.getLogger(EventDeleteController.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(VolunteerUpdateController.class.getName()).log(Level.SEVERE, null, ex);
         }
+        skill.setItems(observableArrayList("Graphocs","Teaching","Management","Gardening"));
     }    
 
     @FXML
-    private void getid(ActionEvent event) {
+    private void getvid(ActionEvent event) {
     }
 
     @FXML
-    private void goback(ActionEvent event) throws IOException {
-    Parent adminDash = FXMLLoader.load(getClass().getResource("ManageEvent.fxml"));
+    private void getvname(ActionEvent event) {
+    }
+
+    @FXML
+    private void getage(ActionEvent event) {
+    }
+
+    @FXML
+    private void getphone(ActionEvent event) {
+    }
+
+    @FXML
+    private void getaddress(ActionEvent event) {
+    }
+
+    @FXML
+    private void gotoback(ActionEvent event) throws IOException {
+        Parent adminDash = FXMLLoader.load(getClass().getResource("ManageVolunteer.fxml"));
         Scene adminDashScene = new Scene(adminDash);
         Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
         window.getIcons().add(new Image(getClass().getResourceAsStream("icon.png")));
         window.setTitle("V-Assist");
         window.setScene(adminDashScene);
         window.show();
+    
     }
 
     @FXML
-    private void donedelete(ActionEvent event) throws SQLException, IOException {
-    String EID = eventid.getText();
-    if(EID.isEmpty()){
+    private void setupdate(ActionEvent event) throws SQLException, IOException {
+        String VID = vid.getText();
+        if(VID.isEmpty()){
             Alert alert = new Alert(Alert.AlertType.ERROR);
             alert.setHeaderText(null);
             alert.setContentText("Please Enter Event ID");
             alert.showAndWait();
             return;
     }
-    String qu = "DELETE FROM EVENT WHERE EVENTID = '" + EID + "'";
+        String Vname = vname.getText();
+        String Age = age.getText();
+        String Phone = phone.getText();
+        String Skill = skill.getValue();
+        String Address = address.getText();
+                if (VID.isEmpty() || Vname.isEmpty() || Age.isEmpty() || Phone.isEmpty() || Skill==null || Address.isEmpty()) {
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setHeaderText(null);
+            alert.setContentText("Please Enter in all the fields");
+            alert.showAndWait();
+            return;
+        }
+
+        qu = "UPDATE VOLUNTEER SET VOLUNTEERNAME = '" 
+                + Vname + "',AGE = '" 
+                + Age+ "',PHONE = '" 
+                + Phone + "',ADDRESS = '" 
+                + Address + "',SKILL = '" 
+                + Skill + "' WHERE VOLUNTEERID = '" 
+                + VID + "'"; 
+        System.out.println(qu);
         con = DriverManager.getConnection("jdbc:derby://localhost:1527/VM", "sudeepto", "sudeepto");
         stm = con.createStatement();
         res = stm.executeUpdate(qu);
-        
-        if (res != 0) {
+         if (res != 0) {
             Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
             alert.setHeaderText(null);
-            alert.setContentText("Deleted Successful");
+            alert.setContentText("Update Successful");
             alert.showAndWait();
-            Parent adminDash = FXMLLoader.load(getClass().getResource("ManageEvent.fxml"));
+            Parent adminDash = FXMLLoader.load(getClass().getResource("ManageVolunteer.fxml"));
             Scene adminDashScene = new Scene(adminDash);
             Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
             window.getIcons().add(new Image(getClass().getResourceAsStream("icon.png")));
-            window.setTitle("V-Assist");
+            window.setTitle("V-assist");
             window.setScene(adminDashScene);
             window.show();
-            
         }
+        
     }
     
 }

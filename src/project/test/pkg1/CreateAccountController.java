@@ -11,6 +11,8 @@ import java.io.IOException;
 import java.net.URL;
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ResourceBundle;
@@ -27,6 +29,7 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import javafx.scene.image.Image;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
@@ -46,6 +49,7 @@ public class CreateAccountController implements Initializable {
     Connection con;
     Statement stm;
     int res;
+    
     @FXML
     private JFXTextField txtFirstName;
     @FXML
@@ -97,7 +101,8 @@ public class CreateAccountController implements Initializable {
         Parent adminDash = FXMLLoader.load(getClass().getResource("Login.fxml"));
         Scene adminDashScene = new Scene(adminDash);
         Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        window.setTitle("Volunteer management");
+        window.getIcons().add(new Image(getClass().getResourceAsStream("icon.png")));
+        window.setTitle("V-Assist");
         window.setScene(adminDashScene);
         window.show();
     }
@@ -107,7 +112,25 @@ public class CreateAccountController implements Initializable {
     String Fname = txtFirstName.getText();
     String Lname = txtLastName.getText();
     String Uname = txtUsername.getText();
+    String DuplicateChecker = "SELECT * FROM CREATE_ACCOUNT WHERE USERNAME = '" + Uname + "'";
+        PreparedStatement pst = con.prepareStatement(DuplicateChecker);
+        System.out.println(DuplicateChecker);
+        ResultSet rs = pst.executeQuery();
+        if (rs.next()) {
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setHeaderText(null);
+            alert.setContentText("An account already exists for this user name.");
+            alert.showAndWait();
+            return;
+        }
     String Pass = txtPassword.getText();
+     if (Pass.length()<8) {
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setHeaderText(null);
+            alert.setContentText("The length of password must be more than 7 characters.");
+            alert.showAndWait();
+            return;
+        }
     String ConPass = txtConfirm.getText();
     
     if(!Pass.equals(ConPass)){
@@ -124,12 +147,16 @@ public class CreateAccountController implements Initializable {
         alert.showAndWait();
         return;
     }
+    String hashpassword = Hash.encode(Pass);
+    System.out.println(Hash.decode(hashpassword));
+    
+    
     String qu = "INSERT INTO CREATE_ACCOUNT VALUES("
             + "'" + Uname + "',"
             + "'" + Fname + "',"
             + "'" + Lname + "',"
-            + "'" + Pass + "',"
-            + "'" + ConPass + "'"
+            + "'" + hashpassword + "',"
+            + "'" + hashpassword + "'"
             + ")";
     con = DriverManager.getConnection("jdbc:derby://localhost:1527/VM", "sudeepto", "sudeepto");
     stm = con.createStatement();
@@ -142,11 +169,10 @@ public class CreateAccountController implements Initializable {
         Parent adminDash = FXMLLoader.load(getClass().getResource("Login.fxml"));
         Scene adminDashScene = new Scene(adminDash);
         Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        window.setTitle("Volunteer management");
+        window.getIcons().add(new Image(getClass().getResourceAsStream("icon.png")));
+        window.setTitle("V-Assist");
         window.setScene(adminDashScene);
         window.show();
-    }
-    
-    
+    }    
     }
 }

@@ -9,11 +9,9 @@ import com.jfoenix.controls.JFXTextField;
 import java.io.IOException;
 import java.net.URL;
 import java.sql.Connection;
-import java.sql.Date;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 import java.sql.Statement;
-import java.time.LocalDate;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -28,7 +26,6 @@ import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.ChoiceBox;
-import javafx.scene.control.DatePicker;
 import javafx.scene.image.Image;
 import javafx.stage.Stage;
 
@@ -37,26 +34,30 @@ import javafx.stage.Stage;
  *
  * @author sudee
  */
-public class EventController implements Initializable {
+public class VolunteerAddController implements Initializable {
 
     @FXML
-    private JFXTextField eventName;
+    private ChoiceBox<String> skillchoice;
     @FXML
-    private JFXTextField venue;
+    private JFXTextField vid;
     @FXML
-    private DatePicker date;
+    private JFXTextField vname;
     @FXML
-    private Button createEvent;
+    private JFXTextField age;
     @FXML
-    private ChoiceBox<String> duration;
+    private JFXTextField phone;
     @FXML
-    private JFXTextField location;
+    private JFXTextField address;
     @FXML
-    private Button cancel;
+    private Button register;
+    @FXML
+    private Button back;
     
     Connection con;
     Statement stm;
     int res;
+    
+
     /**
      * Initializes the controller class.
      */
@@ -65,49 +66,56 @@ public class EventController implements Initializable {
         try {
             con = DriverManager.getConnection("jdbc:derby://localhost:1527/VM", "sudeepto", "sudeepto");
         } catch (SQLException ex) {
-            Logger.getLogger(EventController.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(VolunteerAddController.class.getName()).log(Level.SEVERE, null, ex);
         }
-        duration.setItems(observableArrayList("1 hour","2 hours","3 hour","4 hour","5 hour","6 hour","7 hour"));
-        
+        skillchoice.setItems(observableArrayList("Graphocs","Teaching","Management","Gardening"));
     }    
 
     @FXML
-    private void getEventName(ActionEvent event) {
+    private void getvid(ActionEvent event) {
     }
 
     @FXML
-    private void getVenue(ActionEvent event) {
+    private void getvname(ActionEvent event) {
     }
 
     @FXML
-    private void getDate(ActionEvent event) {
+    private void getage(ActionEvent event) {
     }
 
     @FXML
-    private void setCreateEvent(ActionEvent event) throws SQLException, IOException {
-//    String EID = eventID.getText();
-    String EName = eventName.getText();
-    String EVenue = venue.getText();
-    LocalDate EDate = date.getValue();
-    String Eduration = duration.getValue();
-    String Elocation = location.getText();
-    if (EName.isEmpty() || EVenue.isEmpty() || Eduration==null || Elocation.isEmpty() || EDate==null) {
+    private void getphone(ActionEvent event) {
+    }
+
+    @FXML
+    private void getaddress(ActionEvent event) {
+    }
+
+    @FXML
+    private void setregister(ActionEvent event) throws SQLException, IOException {
+        String VID = vid.getText();
+        String VName = vname.getText();
+        String Age = age.getText();
+        String Phone = phone.getText();
+        String Address = address.getText();
+        String Skillchoice = skillchoice.getValue();
+        if (VID.isEmpty() || VName.isEmpty() || Age.isEmpty() || Phone==null || Address.isEmpty() || Skillchoice==null) {
             Alert alert = new Alert(Alert.AlertType.ERROR);
             alert.setHeaderText(null);
             alert.setContentText("Please Enter in all the fields");
             alert.showAndWait();
             return;
         }
-        System.out.println(EName + " " + EVenue + " " + EDate + " " + Eduration + " " + Elocation +" ");
-        
-            String qu = "INSERT INTO EVENT VALUES("
-//                + "'" + EID + "',"
-                + "'" + EName + "',"
-                + "'" + EVenue + "',"
-                + "'" + EDate + "',"
-                + "'" + Eduration + "',"
-                + "'" + Elocation + "'"
+            
+            String qu = "INSERT INTO VOLUNTEER VALUES("
+                + "'" + VID + "',"
+                + "'" + VName + "',"
+                + "'" + Age + "',"
+                + "'" + Phone + "',"
+                + "'" + Address + "',"
+                + "'" + Skillchoice + "'"
                 + ")";
+            
         con = DriverManager.getConnection("jdbc:derby://localhost:1527/VM", "sudeepto", "sudeepto");
         stm = con.createStatement();
         res = stm.executeUpdate(qu);
@@ -117,32 +125,24 @@ public class EventController implements Initializable {
             alert.setHeaderText(null);
             alert.setContentText("Added Successful");
             alert.showAndWait();
-            Parent adminDash = FXMLLoader.load(getClass().getResource("ManageEvent.fxml"));
+            Parent adminDash = FXMLLoader.load(getClass().getResource("ManageVolunteer.fxml"));
             Scene adminDashScene = new Scene(adminDash);
             Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
             window.getIcons().add(new Image(getClass().getResourceAsStream("icon.png")));
             window.setTitle("V-Assist");
             window.setScene(adminDashScene);
             window.show();
-            
+         
         }
-    
-    
-    
-    }
-
-
-
-    @FXML
-    private void getLocation(ActionEvent event) {
     }
 
     @FXML
-    private void goback(ActionEvent event) throws IOException {
-        Parent adminDash = FXMLLoader.load(getClass().getResource("ManageEvent.fxml"));
+    private void gobackbutton(ActionEvent event) throws IOException {
+        Parent adminDash = FXMLLoader.load(getClass().getResource("ManageVolunteer.fxml"));
         Scene adminDashScene = new Scene(adminDash);
         Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        window.setTitle("Volunteer management");
+        window.getIcons().add(new Image(getClass().getResourceAsStream("icon.png")));
+        window.setTitle("V-Assist");
         window.setScene(adminDashScene);
         window.show();
     }
