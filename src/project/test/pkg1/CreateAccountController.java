@@ -150,12 +150,18 @@ public class CreateAccountController implements Initializable {
     String hashpassword = Hash.encode(Pass);
     System.out.println(Hash.decode(hashpassword));
     
+    String qu2 = "INSERT INTO PASSWORDARCHIVE VALUES("
+            + "'" + Uname + "',"
+            + "'" + hashpassword + "'"
+            + ")";
+    con = DriverManager.getConnection("jdbc:derby://localhost:1527/VM", "sudeepto", "sudeepto");
+    stm = con.createStatement();
+    res = stm.executeUpdate(qu2);
     
     String qu = "INSERT INTO CREATE_ACCOUNT VALUES("
             + "'" + Uname + "',"
             + "'" + Fname + "',"
             + "'" + Lname + "',"
-            + "'" + hashpassword + "',"
             + "'" + hashpassword + "'"
             + ")";
     con = DriverManager.getConnection("jdbc:derby://localhost:1527/VM", "sudeepto", "sudeepto");

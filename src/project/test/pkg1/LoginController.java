@@ -30,6 +30,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.Region;
 import javafx.stage.Stage;
 
 /**
@@ -125,6 +126,7 @@ public class LoginController implements Initializable {
     }
     else{
         Alert alert = new Alert(Alert.AlertType.ERROR);
+        //alert.getDialogPane().getChildren().stream().filter(node -> node instanceof Label).forEach(node -> ((Label)node).setMinHeight(Region.USE_PREF_SIZE));
         alert.setHeaderText(null);
         alert.setContentText("Username & Password doesn't match");
         alert.showAndWait();

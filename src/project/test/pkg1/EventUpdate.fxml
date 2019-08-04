@@ -10,19 +10,21 @@
 
 <AnchorPane id="AnchorPane" prefHeight="635.0" prefWidth="969.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="project.test.pkg1.EventUpdateController">
    <children>
-      <Label layoutX="83.0" layoutY="39.0" text="Event ID" />
-      <Label layoutX="83.0" layoutY="103.0" text="Event Name" />
-      <Label layoutX="89.0" layoutY="153.0" text="Venue" />
-      <DatePicker fx:id="date" layoutX="236.0" layoutY="188.0" onAction="#getdate" />
-      <Label layoutX="83.0" layoutY="192.0" text="Date" />
-      <Label layoutX="83.0" layoutY="243.0" text="Duration" />
-      <Label layoutX="83.0" layoutY="301.0" text="Location" />
-      <JFXTextField fx:id="eventname" layoutX="264.0" layoutY="91.0" onAction="#geteventname" />
-      <JFXTextField fx:id="venue" layoutX="264.0" layoutY="138.0" onAction="#getvenue" />
-      <JFXTextField fx:id="location" layoutX="264.0" layoutY="289.0" onAction="#getlocation" />
-      <ChoiceBox fx:id="duration" layoutX="248.0" layoutY="239.0" prefWidth="150.0" />
-      <JFXTextField fx:id="eventId" layoutX="236.0" layoutY="35.0" onAction="#geteventId" prefHeight="25.0" prefWidth="164.0" />
-      <JFXButton fx:id="update" layoutX="722.0" layoutY="501.0" onAction="#setupdate" prefHeight="66.0" prefWidth="164.0" style="-fx-background-color: #1c6eb5; -fx-background-radius: 50px;" text="Update" textFill="WHITE">
+      <DatePicker fx:id="date" layoutX="590.0" layoutY="203.0" onAction="#getdate" prefHeight="51.0" prefWidth="291.0" />
+      <JFXTextField fx:id="eventname" layoutX="101.0" layoutY="148.0" onAction="#geteventname" promptText="Event Name">
+         <font>
+            <Font name="Microsoft JhengHei Light" size="32.0" />
+         </font></JFXTextField>
+      <JFXTextField fx:id="venue" layoutX="101.0" layoutY="246.0" onAction="#getvenue" promptText="Venue">
+         <font>
+            <Font name="Microsoft JhengHei Light" size="32.0" />
+         </font></JFXTextField>
+      <JFXTextField fx:id="location" layoutX="101.0" layoutY="364.0" onAction="#getlocation" promptText="Location">
+         <font>
+            <Font name="Microsoft JhengHei Light" size="32.0" />
+         </font></JFXTextField>
+      <ChoiceBox fx:id="duration" layoutX="590.0" layoutY="381.0" prefHeight="51.0" prefWidth="291.0" />
+      <JFXButton fx:id="update" layoutX="751.0" layoutY="501.0" onAction="#setupdate" prefHeight="60.0" prefWidth="135.0" style="-fx-background-color: #1c6eb5; -fx-background-radius: 50px;" text="Update" textFill="WHITE">
          <font>
             <Font name="Microsoft JhengHei" size="24.0" />
          </font>
@@ -30,7 +32,7 @@
             <Cursor fx:constant="HAND" />
          </cursor>
       </JFXButton>
-      <JFXButton fx:id="cancel" layoutX="154.0" layoutY="501.0" onAction="#gobackto" prefHeight="66.0" prefWidth="164.0" style="-fx-border-color: #1c6eb5; -fx-border-radius: 50px;" text="Cancel" textFill="#1c6eb5">
+      <JFXButton fx:id="cancel" layoutX="101.0" layoutY="501.0" onAction="#gobackto" prefHeight="60.0" prefWidth="124.0" style="-fx-border-color: #1c6eb5; -fx-border-radius: 50px;" text="Cancel" textFill="#1c6eb5">
          <font>
             <Font name="Microsoft JhengHei" size="24.0" />
          </font>
@@ -38,5 +40,26 @@
             <Cursor fx:constant="HAND" />
          </cursor>
       </JFXButton>
+      <Label layoutX="574.0" layoutY="148.0" text="Please select the date">
+         <font>
+            <Font name="Microsoft JhengHei Light" size="32.0" />
+         </font>
+      </Label>
+      <Label layoutX="556.0" layoutY="322.0" text="Please select the duration">
+         <font>
+            <Font name="Microsoft JhengHei Light" size="32.0" />
+         </font>
+      </Label>
+      <Label layoutX="359.0" layoutY="14.0" text="Event Update">
+         <font>
+            <Font name="Microsoft JhengHei Light" size="48.0" />
+         </font>
+      </Label>
+      <Label layoutX="344.0" layoutY="81.0" text="Make sure to update properly" textFill="#2a2de8">
+         <font>
+            <Font name="Microsoft JhengHei Light" size="24.0" />
+         </font>
+      </Label>
+      <JFXTextField fx:id="eventId" layoutX="101.0" layoutY="115.0" onAction="#getEID" promptText="ID" />
    </children>
 </AnchorPane>

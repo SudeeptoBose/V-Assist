@@ -5,6 +5,7 @@
  */
 package project.test.pkg1;
 
+import com.jfoenix.controls.JFXButton;
 import java.io.IOException;
 import java.net.URL;
 import java.sql.Connection;
@@ -38,11 +39,11 @@ public class AdminDashController implements Initializable {
     private Button volmanage;
     @FXML
     private Button logout;
-    @FXML
-    private Button voldetails;
      Connection con;
     Statement stm;
     int res;
+    @FXML
+    private JFXButton vassign;
     /**
      * Initializes the controller class.
      */
@@ -57,7 +58,7 @@ public class AdminDashController implements Initializable {
 
     @FXML
     private void gotoupcomingevents(ActionEvent event) throws IOException {
-    Parent adminDash = FXMLLoader.load(getClass().getResource("ManageEvent.fxml"));
+    Parent adminDash = FXMLLoader.load(getClass().getResource("ManageEvent1.fxml"));
         Scene adminDashScene = new Scene(adminDash);
         Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
         window.getIcons().add(new Image(getClass().getResourceAsStream("icon.png")));
@@ -90,7 +91,14 @@ public class AdminDashController implements Initializable {
     }
 
     @FXML
-    private void gotovoldetails(ActionEvent event) {
+    private void govassign(ActionEvent event) throws IOException {
+        Parent adminDash = FXMLLoader.load(getClass().getResource("VolunteerAssign.fxml"));
+        Scene adminDashScene = new Scene(adminDash);
+        Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        window.getIcons().add(new Image(getClass().getResourceAsStream("icon.png")));
+        window.setTitle("V-Assist");
+        window.setScene(adminDashScene);
+        window.show();
     }
 
     

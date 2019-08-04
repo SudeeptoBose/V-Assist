@@ -10,9 +10,11 @@ import java.io.IOException;
 import java.net.URL;
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ResourceBundle;
+import java.util.UUID;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import static javafx.collections.FXCollections.observableArrayList;
@@ -39,8 +41,6 @@ public class VolunteerAddController implements Initializable {
     @FXML
     private ChoiceBox<String> skillchoice;
     @FXML
-    private JFXTextField vid;
-    @FXML
     private JFXTextField vname;
     @FXML
     private JFXTextField age;
@@ -56,7 +56,7 @@ public class VolunteerAddController implements Initializable {
     Connection con;
     Statement stm;
     int res;
-    
+   String VID;
 
     /**
      * Initializes the controller class.
@@ -68,12 +68,9 @@ public class VolunteerAddController implements Initializable {
         } catch (SQLException ex) {
             Logger.getLogger(VolunteerAddController.class.getName()).log(Level.SEVERE, null, ex);
         }
-        skillchoice.setItems(observableArrayList("Graphocs","Teaching","Management","Gardening"));
+        skillchoice.setItems(observableArrayList("Graphics","Teaching","Management","Gardening"));
     }    
 
-    @FXML
-    private void getvid(ActionEvent event) {
-    }
 
     @FXML
     private void getvname(ActionEvent event) {
@@ -93,13 +90,27 @@ public class VolunteerAddController implements Initializable {
 
     @FXML
     private void setregister(ActionEvent event) throws SQLException, IOException {
-        String VID = vid.getText();
+//        String VID = UUID.randomUUID().toString();
+//        String VID = null;
+            con = DriverManager.getConnection("jdbc:derby://localhost:1527/VM", "sudeepto", "sudeepto");
+            stm = con.createStatement();
+            ResultSet rs = stm.executeQuery("SELECT COUNT(*) FROM VOLUNTEER");
+            // get the number of rows from the result set
+            if(rs.next()){
+            int rowCount = rs.getInt(1);
+            System.out.println(rowCount);
+//            if(rowCount==0){
+//            
+//            }
+//            int newidi = rowCount + 1;
+            VID = Integer.toString(rowCount + 1);
+        }
         String VName = vname.getText();
         String Age = age.getText();
         String Phone = phone.getText();
         String Address = address.getText();
         String Skillchoice = skillchoice.getValue();
-        if (VID.isEmpty() || VName.isEmpty() || Age.isEmpty() || Phone==null || Address.isEmpty() || Skillchoice==null) {
+        if (VName.isEmpty() || Age.isEmpty() || Phone==null || Address.isEmpty() || Skillchoice==null) {
             Alert alert = new Alert(Alert.AlertType.ERROR);
             alert.setHeaderText(null);
             alert.setContentText("Please Enter in all the fields");
@@ -134,10 +145,19 @@ public class VolunteerAddController implements Initializable {
             window.show();
          
         }
+//        else{
+//            Alert alert = new Alert(Alert.AlertType.ERROR);
+//            alert.setHeaderText(null);
+//            alert.setContentText("Something is wrong");
+//            alert.showAndWait();
+//            return;
+//        }
     }
 
     @FXML
-    private void gobackbutton(ActionEvent event) throws IOException {
+    private void gobackbutton(ActionEvent event) throws IOException, SQLException {
+                        
+            
         Parent adminDash = FXMLLoader.load(getClass().getResource("ManageVolunteer.fxml"));
         Scene adminDashScene = new Scene(adminDash);
         Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();

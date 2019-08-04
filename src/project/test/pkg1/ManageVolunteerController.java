@@ -13,6 +13,8 @@ import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.ArrayList;
+import static java.util.Collections.list;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -28,6 +30,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
+import javafx.scene.control.SelectionMode;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
@@ -169,20 +172,32 @@ public class ManageVolunteerController implements Initializable {
         Scene adminDashScene = new Scene(adminDash);
         Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
         window.getIcons().add(new Image(getClass().getResourceAsStream("icon.png")));
-        window.setTitle("Volunteer management");
+        window.setTitle("V-Assist");
         window.setScene(adminDashScene);
         window.show();
     }
 
     @FXML
     private void gotoDelete(ActionEvent event) throws IOException {
-        Parent adminDash = FXMLLoader.load(getClass().getResource("VolunteerDelete.fxml"));
+            delete.setOnAction(e -> {
+            Volunteer selectedItem = voltable.getSelectionModel().getSelectedItem();
+            voltable.getItems().remove(selectedItem);
+            });
+//            voltable.getSelectionModel().setSelectionMode(SelectionMode.MULTIPLE);
+//            ObservableList<Volunteer> selectedRows = voltable.getSelectionModel().getSelectedItems();
+//            // we don't want to iterate on same collection on with we remove items
+//            ArrayList<Volunteer> rows = new ArrayList<>(selectedRows);
+//            rows.forEach(row -> voltable.getItems().remove(row));
+//        int index = TableView.getSelectionModel().getSelectedIndex();
+//        list.remove(index);
+        Parent adminDash = FXMLLoader.load(getClass().getResource("VolunteerDelete1.fxml"));
         Scene adminDashScene = new Scene(adminDash);
         Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
         window.getIcons().add(new Image(getClass().getResourceAsStream("icon.png")));
         window.setTitle("V-Assist");
         window.setScene(adminDashScene);
         window.show();
+
     }
 
     @FXML

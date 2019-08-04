@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import com.jfoenix.controls.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane" prefHeight="635.0" prefWidth="969.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="project.test.pkg1.ManageEvent1Controller">
+   <children>
+      <TableView fx:id="evetable" prefHeight="635.0" prefWidth="624.0">
+        <columns>
+          <TableColumn fx:id="eid" prefWidth="75.0" text="Event ID" />
+          <TableColumn fx:id="ename" prefWidth="98.0" text="Event Name" />
+            <TableColumn fx:id="venue" prefWidth="148.0" text="Venue" />
+            <TableColumn fx:id="date" prefWidth="86.0" text="Date" />
+            <TableColumn fx:id="location" prefWidth="122.0" text="Location" />
+            <TableColumn fx:id="duration" prefWidth="111.0" text="Duration" />
+        </columns>
+      </TableView>
+      <JFXTextField fx:id="txtsearch" alignment="CENTER" layoutX="643.0" layoutY="88.0" onAction="#txtsearch" prefHeight="50.0" prefWidth="306.0" promptText="Please enter skill">
+         <font>
+            <Font name="Microsoft JhengHei Light" size="24.0" />
+         </font>
+      </JFXTextField>
+      <JFXButton fx:id="search" layoutX="628.0" layoutY="172.0" onAction="#getsearch" prefHeight="47.0" prefWidth="106.0" style="-fx-background-color: #249af4;" text="Search" textFill="WHITE">
+         <font>
+            <Font name="Microsoft JhengHei" size="22.0" />
+         </font>
+      </JFXButton>
+      <JFXButton fx:id="showall" layoutX="738.0" layoutY="172.0" onAction="#getshowall" prefHeight="47.0" prefWidth="116.0" style="-fx-background-color: #249af4;" text="Show all" textFill="WHITE">
+         <font>
+            <Font name="Microsoft JhengHei" size="22.0" />
+         </font>
+      </JFXButton>
+      <JFXButton fx:id="refresh" layoutX="858.0" layoutY="172.0" onAction="#getrefresh" style="-fx-background-color: #249af4;" text="Refresh" textFill="WHITE">
+         <font>
+            <Font name="Microsoft JhengHei" size="22.0" />
+         </font>
+      </JFXButton>
+      <Label layoutX="665.0" layoutY="344.0" prefHeight="34.0" prefWidth="260.0" text="Modify the events here" textFill="#2359ee">
+         <font>
+            <Font name="Microsoft JhengHei Light" size="24.0" />
+         </font>
+      </Label>
+      <JFXButton fx:id="add" layoutX="648.0" layoutY="428.0" onAction="#getadd" style="-fx-background-color: #249af4;" text="Add" textFill="WHITE">
+         <font>
+            <Font name="Microsoft JhengHei" size="24.0" />
+         </font>
+      </JFXButton>
+      <JFXButton fx:id="update" layoutX="737.0" layoutY="428.0" onAction="#getupdate" style="-fx-background-color: #249af4;" text="Update" textFill="WHITE">
+         <font>
+            <Font name="Microsoft JhengHei" size="24.0" />
+         </font>
+      </JFXButton>
+      <JFXButton fx:id="delete" layoutX="859.0" layoutY="428.0" onAction="#getdelete" style="-fx-background-color: #249af4;" text="Delete" textFill="WHITE">
+         <font>
+            <Font name="Microsoft JhengHei" size="24.0" />
+         </font>
+      </JFXButton>
+      <JFXButton fx:id="back" layoutX="778.0" layoutY="558.0" onAction="#goback" style="-fx-border-color: #249af4; -fx-border-radius: 50px;" text="Back" textFill="#249af4">
+         <font>
+            <Font name="Microsoft JhengHei" size="24.0" />
+         </font>
+      </JFXButton>
+   </children>
+</AnchorPane>

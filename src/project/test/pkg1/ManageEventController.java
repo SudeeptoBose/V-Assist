@@ -83,7 +83,7 @@ public class ManageEventController implements Initializable {
         Scene adminDashScene = new Scene(adminDash);
         Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
         window.getIcons().add(new Image(getClass().getResourceAsStream("icon.png")));
-        window.setTitle("Volunteer management");
+        window.setTitle("V-Assist");
         window.setScene(adminDashScene);
         window.show();
     }

@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import com.jfoenix.controls.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane" prefHeight="635.0" prefWidth="969.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="project.test.pkg1.VolunteerAssignController">
+   <children>
+      <TableView prefHeight="435.0" prefWidth="517.0">
+        <columns>
+            <TableColumn fx:id="teventid" minWidth="0.0" prefWidth="105.0" text="Event ID" />
+            <TableColumn fx:id="tename" prefWidth="93.0" text="Event Name" />
+          <TableColumn fx:id="tvid" prefWidth="93.0" text="Volunteer ID" />
+          <TableColumn fx:id="tvname" prefWidth="148.0" text="Volunteer Name" />
+            <TableColumn fx:id="sts" prefWidth="77.0" text="Status" />
+        </columns>
+      </TableView>
+      <JFXButton fx:id="Assign" layoutX="755.0" layoutY="534.0" onAction="#setassign" style="-fx-background-color: #1c6eb5; -fx-background-radius: 50px;" text="Assign" textFill="WHITE">
+         <font>
+            <Font name="Microsoft JhengHei" size="24.0" />
+         </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </JFXButton>
+      <JFXButton fx:id="back" layoutX="117.0" layoutY="526.0" onAction="#goback" style="-fx-border-radius: 50px; -fx-border-color: #1c6eb5;" text="Back" textFill="#1c6eb5">
+         <font>
+            <Font name="Microsoft JhengHei" size="24.0" />
+         </font>
+      </JFXButton>
+      <JFXTextField fx:id="vid" alignment="CENTER" layoutX="629.0" layoutY="90.0" onAction="#getvid" promptText="Enter Volunteer ID">
+         <font>
+            <Font name="Microsoft JhengHei Light" size="24.0" />
+         </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </JFXTextField>
+      <JFXTextField fx:id="vname" alignment="CENTER" layoutX="629.0" layoutY="145.0" onAction="#getvname" promptText="Enter Volunteer Name">
+         <font>
+            <Font name="Microsoft JhengHei Light" size="24.0" />
+         </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </JFXTextField>
+      <JFXTextField fx:id="eid" alignment="CENTER" layoutX="629.0" layoutY="312.0" onAction="#geteid" promptText="Enter Event ID">
+         <font>
+            <Font name="Microsoft JhengHei Light" size="24.0" />
+         </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </JFXTextField>
+      <JFXTextField fx:id="ename" alignment="CENTER" layoutX="629.0" layoutY="377.0" onAction="#getename" promptText="Enter Event Name">
+         <font>
+            <Font name="Microsoft JhengHei Light" size="24.0" />
+         </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </JFXTextField>
+      <Label layoutX="594.0" layoutY="20.0" text="Please check status then assign" textFill="#3679ff">
+         <font>
+            <Font name="Microsoft JhengHei Light" size="24.0" />
+         </font>
+      </Label>
+      <Label layoutX="643.0" layoutY="271.0" text="Please assign to event" textFill="#3679ff">
+         <font>
+            <Font name="Microsoft JhengHei Light" size="24.0" />
+         </font>
+      </Label>
+   </children>
+</AnchorPane>

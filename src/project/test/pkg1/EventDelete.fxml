@@ -8,15 +8,38 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-
-<AnchorPane id="AnchorPane" prefHeight="179.0" prefWidth="352.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8" fx:controller="project.test.pkg1.EventDeleteController">
+<AnchorPane id="AnchorPane" prefHeight="635.0" prefWidth="969.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="project.test.pkg1.EventDeleteController">
    <children>
-      <JFXTextField fx:id="eventid" layoutX="41.0" layoutY="37.0" onAction="#getid" prefHeight="25.0" prefWidth="265.0" promptText="Enter Event ID">
+      <JFXTextField fx:id="eventid" alignment="CENTER" layoutX="344.0" layoutY="280.0" onAction="#getid" prefHeight="50.0" prefWidth="274.0" promptText="Enter Event ID">
          <font>
-            <Font name="System Bold" size="17.0" />
+            <Font name="Microsoft JhengHei Light" size="24.0" />
          </font>
       </JFXTextField>
-      <Button fx:id="cancel" layoutX="41.0" layoutY="113.0" mnemonicParsing="false" onAction="#goback" prefHeight="38.0" prefWidth="78.0" text="Cancel" />
-      <Button fx:id="deleteevent" layoutX="228.0" layoutY="113.0" mnemonicParsing="false" onAction="#donedelete" prefHeight="38.0" prefWidth="78.0" text="Delete" />
+      <JFXButton fx:id="deleteevent" layoutX="622.0" layoutY="498.0" onAction="#donedelete" style="-fx-background-color: #ea1717; -fx-background-radius: 50px;" text="Delete" textFill="WHITE">
+         <font>
+            <Font name="Microsoft JhengHei" size="24.0" />
+         </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </JFXButton>
+      <JFXButton fx:id="cancel" layoutX="234.0" layoutY="497.0" onAction="#goback" style="-fx-border-color: #1c6eb5; -fx-border-radius: 50px;" text="Cancel" textFill="#1c6eb5">
+         <font>
+            <Font name="Microsoft JhengHei" size="24.0" />
+         </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </JFXButton>
+      <Label layoutX="341.0" layoutY="31.0" prefHeight="74.0" prefWidth="281.0" text="Event Delete">
+         <font>
+            <Font name="Microsoft JhengHei Light" size="48.0" />
+         </font>
+      </Label>
+      <Label layoutX="234.0" layoutY="105.0" text="Please be sure you want to delete this event" textFill="#285ec7">
+         <font>
+            <Font name="Microsoft JhengHei Light" size="24.0" />
+         </font>
+      </Label>
    </children>
 </AnchorPane>

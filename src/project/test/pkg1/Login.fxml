@@ -49,7 +49,7 @@
          </cursor></Label>
       <JFXButton fx:id="loginButtonNext" layoutX="710.0" layoutY="367.0" onAction="#goToAdminDash" prefHeight="52.0" prefWidth="136.0" style="-fx-background-color: #1c6eb5; -fx-background-radius: 50px;" text="Login" textFill="WHITE">
          <font>
-            <Font size="24.0" />
+            <Font name="Microsoft JhengHei" size="24.0" />
          </font>
          <cursor>
             <Cursor fx:constant="HAND" />

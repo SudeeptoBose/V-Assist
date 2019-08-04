@@ -61,7 +61,7 @@ public class EventDeleteController implements Initializable {
 
     @FXML
     private void goback(ActionEvent event) throws IOException {
-    Parent adminDash = FXMLLoader.load(getClass().getResource("ManageEvent.fxml"));
+    Parent adminDash = FXMLLoader.load(getClass().getResource("ManageEvent1.fxml"));
         Scene adminDashScene = new Scene(adminDash);
         Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
         window.getIcons().add(new Image(getClass().getResourceAsStream("icon.png")));
@@ -90,7 +90,7 @@ public class EventDeleteController implements Initializable {
             alert.setHeaderText(null);
             alert.setContentText("Deleted Successful");
             alert.showAndWait();
-            Parent adminDash = FXMLLoader.load(getClass().getResource("ManageEvent.fxml"));
+            Parent adminDash = FXMLLoader.load(getClass().getResource("ManageEvent1.fxml"));
             Scene adminDashScene = new Scene(adminDash);
             Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
             window.getIcons().add(new Image(getClass().getResourceAsStream("icon.png")));

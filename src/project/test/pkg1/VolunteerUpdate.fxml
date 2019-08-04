@@ -10,13 +10,11 @@
 
 <AnchorPane id="AnchorPane" prefHeight="635.0" prefWidth="969.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="project.test.pkg1.VolunteerUpdateController">
    <children>
-      <Label layoutX="203.0" layoutY="131.0" text="Volunteer ID" />
       <Label layoutX="203.0" layoutY="168.0" text="Name" />
       <Label layoutX="203.0" layoutY="206.0" text="Age" />
       <Label layoutX="203.0" layoutY="246.0" text="Phone" />
       <Label layoutX="203.0" layoutY="283.0" text="Address" />
-      <Label layoutX="203.0" layoutY="318.0" text="Skill" />
-      <JFXTextField fx:id="vid" layoutX="336.0" layoutY="120.0" onAction="#getvid" prefHeight="25.0" prefWidth="321.0" />
+      <Label layoutX="203.0" layoutY="391.0" text="Skill" />
       <JFXTextField fx:id="vname" layoutX="336.0" layoutY="170.0" onAction="#getvname" prefHeight="25.0" prefWidth="321.0" />
       <JFXTextField fx:id="age" layoutX="336.0" layoutY="220.0" onAction="#getage" prefHeight="25.0" prefWidth="321.0" />
       <JFXTextField fx:id="phone" layoutX="336.0" layoutY="270.0" onAction="#getphone" prefHeight="25.0" prefWidth="321.0" />
@@ -31,6 +29,7 @@
             <Font name="Microsoft JhengHei" size="24.0" />
          </font>
       </JFXButton>
-      <JFXComboBox fx:id="skill" layoutX="336.0" layoutY="370.0" prefHeight="25.0" prefWidth="321.0" />
+      <ChoiceBox fx:id="skill" layoutX="395.0" layoutY="374.0" prefWidth="150.0" />
+      <JFXTextField fx:id="vid" layoutX="336.0" layoutY="118.0" onAction="#getvid" promptText="enter id" />
    </children>
 </AnchorPane>

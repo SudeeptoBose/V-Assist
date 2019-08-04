@@ -31,6 +31,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.DatePicker;
 import javafx.scene.image.Image;
+import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 
 /**
@@ -95,7 +96,7 @@ public class EventUpdateController implements Initializable {
 
     @FXML
     private void gobackto(ActionEvent event) throws IOException {
-        Parent adminDash = FXMLLoader.load(getClass().getResource("ManageEvent.fxml"));
+        Parent adminDash = FXMLLoader.load(getClass().getResource("ManageEvent1.fxml"));
         Scene adminDashScene = new Scene(adminDash);
         Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
         window.getIcons().add(new Image(getClass().getResourceAsStream("icon.png")));
@@ -149,7 +150,7 @@ public class EventUpdateController implements Initializable {
             alert.setHeaderText(null);
             alert.setContentText("Update Successful");
             alert.showAndWait();
-            Parent adminDash = FXMLLoader.load(getClass().getResource("ManageEvent.fxml"));
+            Parent adminDash = FXMLLoader.load(getClass().getResource("ManageEvent1.fxml"));
             Scene adminDashScene = new Scene(adminDash);
             Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
             window.getIcons().add(new Image(getClass().getResourceAsStream("icon.png")));
@@ -162,7 +163,8 @@ public class EventUpdateController implements Initializable {
     }
 
     @FXML
-    private void geteventId(ActionEvent event) {
+    private void getEID(ActionEvent event) {
     }
+
     
 }

@@ -70,12 +70,9 @@ public class VolunteerUpdateController implements Initializable {
         } catch (SQLException ex) {
             Logger.getLogger(VolunteerUpdateController.class.getName()).log(Level.SEVERE, null, ex);
         }
-        skill.setItems(observableArrayList("Graphocs","Teaching","Management","Gardening"));
+        skill.setItems(observableArrayList("Graphics","Teaching","Management","Gardening"));
     }    
 
-    @FXML
-    private void getvid(ActionEvent event) {
-    }
 
     @FXML
     private void getvname(ActionEvent event) {
@@ -153,6 +150,10 @@ public class VolunteerUpdateController implements Initializable {
             window.show();
         }
         
+    }
+
+    @FXML
+    private void getvid(ActionEvent event) {
     }
     
 }

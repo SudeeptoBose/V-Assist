@@ -11,6 +11,7 @@ import java.net.URL;
 import java.sql.Connection;
 import java.sql.Date;
 import java.sql.DriverManager;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.time.LocalDate;
@@ -57,6 +58,7 @@ public class EventController implements Initializable {
     Connection con;
     Statement stm;
     int res;
+    String EID;
     /**
      * Initializes the controller class.
      */
@@ -86,22 +88,35 @@ public class EventController implements Initializable {
     @FXML
     private void setCreateEvent(ActionEvent event) throws SQLException, IOException {
 //    String EID = eventID.getText();
-    String EName = eventName.getText();
-    String EVenue = venue.getText();
-    LocalDate EDate = date.getValue();
-    String Eduration = duration.getValue();
-    String Elocation = location.getText();
-    if (EName.isEmpty() || EVenue.isEmpty() || Eduration==null || Elocation.isEmpty() || EDate==null) {
+      con = DriverManager.getConnection("jdbc:derby://localhost:1527/VM", "sudeepto", "sudeepto");
+            stm = con.createStatement();
+            ResultSet rs = stm.executeQuery("SELECT COUNT(*) FROM EVENT");
+            // get the number of rows from the result set
+            if(rs.next()){
+            int rowCount = rs.getInt(1);
+            System.out.println(rowCount);
+//            if(rowCount==0){
+//            
+//            }
+//            int newidi = rowCount + 1;
+            EID = Integer.toString(rowCount + 1);
+            
+            String EName = eventName.getText();
+            String EVenue = venue.getText();
+            LocalDate EDate = date.getValue();
+            String Eduration = duration.getValue();
+            String Elocation = location.getText();
+            if (EName.isEmpty() || EVenue.isEmpty() || Eduration==null || Elocation.isEmpty() || EDate==null) {
             Alert alert = new Alert(Alert.AlertType.ERROR);
             alert.setHeaderText(null);
             alert.setContentText("Please Enter in all the fields");
             alert.showAndWait();
             return;
         }
-        System.out.println(EName + " " + EVenue + " " + EDate + " " + Eduration + " " + Elocation +" ");
+ //       System.out.println(EName + " " + EVenue + " " + EDate + " " + Eduration + " " + Elocation +" ");
         
             String qu = "INSERT INTO EVENT VALUES("
-//                + "'" + EID + "',"
+                + "'" + EID + "',"
                 + "'" + EName + "',"
                 + "'" + EVenue + "',"
                 + "'" + EDate + "',"
@@ -117,7 +132,7 @@ public class EventController implements Initializable {
             alert.setHeaderText(null);
             alert.setContentText("Added Successful");
             alert.showAndWait();
-            Parent adminDash = FXMLLoader.load(getClass().getResource("ManageEvent.fxml"));
+            Parent adminDash = FXMLLoader.load(getClass().getResource("ManageEvent1.fxml"));
             Scene adminDashScene = new Scene(adminDash);
             Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
             window.getIcons().add(new Image(getClass().getResourceAsStream("icon.png")));
@@ -126,23 +141,21 @@ public class EventController implements Initializable {
             window.show();
             
         }
+            }
     
     
-    
-    }
-
-
-
+            }
     @FXML
     private void getLocation(ActionEvent event) {
     }
 
     @FXML
     private void goback(ActionEvent event) throws IOException {
-        Parent adminDash = FXMLLoader.load(getClass().getResource("ManageEvent.fxml"));
+        Parent adminDash = FXMLLoader.load(getClass().getResource("ManageEvent1.fxml"));
         Scene adminDashScene = new Scene(adminDash);
         Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        window.setTitle("Volunteer management");
+        window.getIcons().add(new Image(getClass().getResourceAsStream("icon.png")));
+        window.setTitle("V-Assist");
         window.setScene(adminDashScene);
         window.show();
     }
