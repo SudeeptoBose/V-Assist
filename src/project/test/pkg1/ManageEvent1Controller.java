@@ -250,28 +250,28 @@ public class ManageEvent1Controller implements Initializable {
             this.eduration = new SimpleStringProperty(eduration);
         }
 
-        public SimpleStringProperty getEveid() {
-            return eveid;
+        public String getEveid() {
+            return eveid.get();
         }
 
-        public SimpleStringProperty getEvename() {
-            return evename;
+        public String getEvename() {
+            return evename.get();
         }
 
-        public SimpleStringProperty getEvenue() {
-            return evenue;
+        public String getEvenue() {
+            return evenue.get();
         }
 
-        public SimpleStringProperty getEdate() {
-            return edate;
+        public String getEdate() {
+            return edate.get;
         }
 
-        public SimpleStringProperty getElocation() {
-            return elocation;
+        public String getElocation() {
+            return elocation.get;
         }
 
-        public SimpleStringProperty getEduration() {
-            return eduration;
+        public String getEduration() {
+            return eduration.get();
         }
         
     }
