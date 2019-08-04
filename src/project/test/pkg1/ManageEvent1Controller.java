@@ -263,11 +263,11 @@ public class ManageEvent1Controller implements Initializable {
         }
 
         public String getEdate() {
-            return edate.get;
+            return edate.get();
         }
 
         public String getElocation() {
-            return elocation.get;
+            return elocation.get();
         }
 
         public String getEduration() {
